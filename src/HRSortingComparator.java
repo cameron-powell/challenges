@@ -3,6 +3,13 @@ import java.util.*;
 class Checker implements Comparator<Player> {
     @Override
     public int compare(Player p1, Player p2) {
+        int comp = Integer.compare(p1.score, p2.score);
+        if(comp == 0) {
+            if(p1.name.equals(p2.name)) {
+                return 0;
+            }
+            return p1.name.compareTo(p2.name);
+        }
         return -1 * Integer.compare(p1.score, p2.score);
     }
 }
